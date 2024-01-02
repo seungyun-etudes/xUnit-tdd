@@ -3,13 +3,13 @@ package xunit;
 import xunit.annotation.Test;
 
 public class TestCaseTest extends TestCase {
-    public TestCaseTest(String name) {
+
+    public TestCaseTest(final String name) {
         super(name);
     }
 
-    @Test
     public static TestSuite suite() {
-        TestSuite suite = new TestSuite(TestCaseTest.class);
+        final TestSuite suite = new TestSuite(TestCaseTest.class);
 
         return suite;
     }

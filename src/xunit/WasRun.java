@@ -1,9 +1,10 @@
 package xunit;
 
 public class WasRun extends TestCase {
+
     public String log;
 
-    public WasRun(String name) {
+    public WasRun(final String name) {
         super(name);
     }
 

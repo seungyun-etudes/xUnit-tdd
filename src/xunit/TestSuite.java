@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class TestSuite implements Test{
-    private List<Test> tests = new ArrayList<>();
+public class TestSuite implements Test {
 
-    public TestSuite(Class<? extends TestCase> testClass) {
+    private final List<Test> tests = new ArrayList<>();
+
+    public TestSuite(final Class<? extends TestCase> testClass) {
         Arrays.stream(testClass.getMethods())
                 .filter(method -> method.getAnnotation(xunit.annotation.Test.class) != null)
                 .forEach(method -> {
@@ -22,11 +23,11 @@ public class TestSuite implements Test{
     public TestSuite() {
     }
 
-    public void add(Test test) {
+    public void add(final Test test) {
         tests.add(test);
     }
 
-    public void run(TestResult result) {
+    public void run(final TestResult result) {
         tests.forEach(t -> {
             t.run(result);
         });

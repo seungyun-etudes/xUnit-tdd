@@ -3,18 +3,19 @@ package xunit;
 import java.lang.reflect.Method;
 
 public class TestCase implements Test {
+
     private final String name;
 
-    public TestCase(String name) {
+    public TestCase(final String name) {
         this.name = name;
     }
 
-    public void run(TestResult result) {
+    public void run(final TestResult result) {
         result.testStarted();
         setUp();
 
         try {
-            Method method = getClass().getMethod(name);
+            final Method method = getClass().getMethod(name);
             method.invoke(this);
         } catch (Exception e) {
             result.testFailed();
